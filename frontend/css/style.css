@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+h1, h2 {
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+a:hover {
+  text-decoration: underline;
+}
+form input, form textarea, form select, form button {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 300px;
+}

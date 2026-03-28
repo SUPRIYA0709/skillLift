@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SkillLift | Internships</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { background:#f4f6fb; font-family:'Segoe UI',sans-serif; }
+.intern-card {
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  overflow:hidden;
+  margin-bottom:30px;
+}
+.intern-card img { height:180px; width:100%; object-fit:cover; }
+.apply-btn {
+  width:100%; padding:14px;
+  background:#0d6efd; color:#fff;
+  border:none; font-weight:600;
+}
+.apply-btn:hover { background:#084298; }
+footer { background:#111; color:#aaa; text-align:center; padding:15px; }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand fw-bold">SkillLift</span>
+  </div>
+</nav>
+<div class="container mt-3">
+  <a href="dashboard.html" class="btn btn-outline-secondary">
+    ← Back to Dashboard
+  </a>
+</div>
+
+<div class="container text-center mt-4">
+  <h1 class="fw-bold">🚀 Internships & Job Opportunities</h1>
+  <p class="fst-italic text-muted">“Your future starts with the right opportunity.”</p>
+</div>
+
+<div class="container mt-4">
+<div class="row">
+
+<!-- CARD TEMPLATE -->
+<script>
+function openApplyModal(btn){
+  document.getElementById("jobTitle").innerText = btn.dataset.role;
+  document.getElementById("jobCompany").innerText = btn.dataset.company;
+}
+</script>
+
+<!-- 1 -->
+<div class="col-md-6">
+<div class="intern-card">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+<div class="p-3">
+<h4>Frontend Developer Intern</h4>
+<p><b>Company:</b> TechCorp</p>
+<p><b>Skills:</b> HTML, CSS, React</p>
+</div>
+<button class="apply-btn"
+ data-role="Frontend Developer Intern"
+ data-company="TechCorp"
+ onclick="openApplyModal(this)"
+ data-bs-toggle="modal"
+ data-bs-target="#applyModal">
+Apply Now
+</button>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="col-md-6">
+<div class="intern-card">
+<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c">
+<div class="p-3">
+<h4>Backend Developer Intern</h4>
+<p><b>Company:</b> Innovatech</p>
+<p><b>Skills:</b> Python, Django</p>
+</div>
+<button class="apply-btn"
+ data-role="Backend Developer Intern"
+ data-company="Innovatech"
+ onclick="openApplyModal(this)"
+ data-bs-toggle="modal"
+ data-bs-target="#applyModal">
+Apply Now
+</button>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="col-md-6">
+<div class="intern-card">
+<img src="https://images.unsplash.com/photo-1531482615713-2afd69097998">
+<div class="p-3">
+<h4>Data Analyst Intern</h4>
+<p><b>Company:</b> DataWorks</p>
+<p><b>Skills:</b> Excel, SQL, Python</p>
+</div>
+<button class="apply-btn"
+ data-role="Data Analyst Intern"
+ data-company="DataWorks"
+ onclick="openApplyModal(this)"
+ data-bs-toggle="modal"
+ data-bs-target="#applyModal">
+Apply Now
+</button>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="col-md-6">
+<div class="intern-card">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+<div class="p-3">
+<h4>UI/UX Design Intern</h4>
+<p><b>Company:</b> Creatify</p>
+<p><b>Skills:</b> Figma, UX Research</p>
+</div>
+<button class="apply-btn"
+ data-role="UI/UX Design Intern"
+ data-company="Creatify"
+ onclick="openApplyModal(this)"
+ data-bs-toggle="modal"
+ data-bs-target="#applyModal">
+Apply Now
+</button>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="col-md-6">
+<div class="intern-card">
+<img src="https://images.unsplash.com/photo-1605379399642-870262d3d051">
+<div class="p-3">
+<h4>Machine Learning Intern</h4>
+<p><b>Company:</b> AI Labs</p>
+<p><b>Skills:</b> Python, ML</p>
+</div>
+<button class="apply-btn"
+ data-role="Machine Learning Intern"
+ data-company="AI Labs"
+ onclick="openApplyModal(this)"
+ data-bs-toggle="modal"
+ data-bs-target="#applyModal">
+Apply Now
+</button>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="col-md-6">
+<div class="intern-card">
+<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d">
+<div class="p-3">
+<h4>Digital Marketing Intern</h4>
+<p><b>Company:</b> MarketPro</p>
+<p><b>Skills:</b> SEO, Social Media</p>
+</div>
+<button class="apply-btn"
+ data-role="Digital Marketing Intern"
+ data-company="MarketPro"
+ onclick="openApplyModal(this)"
+ data-bs-toggle="modal"
+ data-bs-target="#applyModal">
+Apply Now
+</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="applyModal">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Apply for Internship</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<p><b>Role:</b> <span id="jobTitle"></span></p>
+<p><b>Company:</b> <span id="jobCompany"></span></p>
+<p><b>Interview:</b> Test → Technical → HR</p>
+
+<hr>
+<h5>Enter your details:</h5>
+<form id="applyForm">
+  <input type="text" id="fullName" placeholder="Full Name" class="form-control mb-2" required>
+  <input type="email" id="email" placeholder="Email" class="form-control mb-2" required>
+  <input type="tel" id="phone" placeholder="Phone Number" class="form-control mb-2" required>
+  <input type="text" id="skills" placeholder="Skills (comma separated)" class="form-control mb-2" required>
+  <textarea id="reason" placeholder="Why should we hire you?" class="form-control mb-2" rows="2"></textarea>
+</form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" onclick="submitApplication()">Submit Application</button>
+  <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="mt-4">
+© 2025 SkillLift | Learn • Apply • Succeed 🎓
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function submitApplication() {
+  const jobRole = document.getElementById('jobTitle').innerText;
+  const company = document.getElementById('jobCompany').innerText;
+  const name = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const skills = document.getElementById('skills').value;
+  const reason = document.getElementById('reason').value;
+
+  // Here userEmail = email; if you have login system, replace with logged-in user's email
+  const userEmail = email;
+
+  fetch('http://localhost:5000/apply', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, phone, skills, reason, jobRole, userEmail })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.message.includes("✅")) {
+      alert("Application submitted successfully!");
+      document.getElementById('applyForm').reset();
+      var modal = bootstrap.Modal.getInstance(document.getElementById('applyModal'));
+      modal.hide();
+    } else {
+      alert("Error: " + data.message);
+    }
+  })
+  .catch(err => alert("Error: " + err));
+}
+</script>
+
+</body>
+</html>

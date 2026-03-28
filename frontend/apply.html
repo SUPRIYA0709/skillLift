@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SkillLift | Apply</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  background:#f4f6fb;
+  font-family:'Segoe UI', sans-serif;
+}
+.form-box {
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  padding:30px;
+}
+footer {
+  background:#111;
+  color:#aaa;
+  text-align:center;
+  padding:15px;
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="dashboard.html">SkillLift</a>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h2 class="fw-bold text-center">📝 Internship Application</h2>
+  <p class="text-center text-muted fst-italic">
+    “Opportunities don’t happen, you create them.”
+  </p>
+
+  <div class="form-box mt-4">
+
+    <h5 class="mb-3">
+      Applying for:
+      <span id="jobRole" class="text-primary fw-bold"></span>
+    </h5>
+
+    <form id="applyForm">
+
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" id="name" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" id="email" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Skills</label>
+        <textarea id="skills" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Why should we hire you?</label>
+        <textarea id="reason" class="form-control" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">
+        Submit Application
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<footer>
+© 2025 SkillLift | Application Submitted with Confidence 🎓
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  // Check login
+  const user = localStorage.getItem("userEmail");
+
+  if (!user) {
+    alert("Please login first!");
+    window.location.href = "index.html";
+  }
+
+  // Get job role from URL
+  const params = new URLSearchParams(window.location.search);
+  const role = params.get("role") || "Internship Position";
+  document.getElementById("jobRole").innerText = role;
+
+  // Submit form
+  document.getElementById("applyForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const skills = document.getElementById("skills").value;
+    const reason = document.getElementById("reason").value;
+
+    try {
+      const res = await fetch("http://localhost:5000/apply", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          skills,
+          reason,
+          jobRole: role,
+          userEmail: user
+        })
+      });
+
+      const data = await res.json();
+
+      alert(data.message);
+
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
+
+    } catch (error) {
+      console.error(error);
+      alert("Error submitting application!");
+    }
+  });
+</script>
+
+</body>
+</html>
